@@ -42,24 +42,22 @@ Configurations simulated:
 
 | Bipolar H4 | Unipolar H4 | H5 |
 |---|---|---|
-| ![Bipolar CMV](images/cmv_bipolar.png) | ![Unipolar CMV](images/cmv_unipolar.png) | ![H5 CMV](images/cmv_h5.png) |
+| ![Bipolar CMV](cmv_bipolar.png) | ![Unipolar CMV](cmv_unipolar.png) | ![H5 CMV](cmv_h5.png) |
 
 **Takeaways**
 - **Bipolar PWM** keeps CMV flat, so leakage is minimal, but the ±400 V output swing gives large current ripple and needs bigger filter inductors.
 - **Unipolar PWM** gives a three-level output and low ripple, but CMV jumps between 0 V and 400 V at switching frequency, which drives high leakage current and EMI.
 - **H5** keeps the three-level, low-ripple output of unipolar PWM, while the fifth switch isolates the DC link during freewheeling. That limits CMV swing and suppresses leakage current, so you get the advantages of both.
 
-## Repository structure
+## Repository files
 
-```
-├── simulation/
-│   ├── H4_bipolar_PWM.plecs        # H4 full bridge, bipolar PWM
-│   ├── H4_unipolar_PWM.plecs       # H4 full bridge, unipolar PWM
-│   └── H5_inverter.plecs           # H5 transformerless topology
-├── report/
-│   └── H4_H5_CMV_report.pdf        # Full report with all waveforms and FFT spectra
-└── images/                          # Figures used in this README
-```
+| File | Content |
+|---|---|
+| `H4_bipolar_PWM.plecs` | H4 full bridge, bipolar PWM |
+| `H4_unipolar_PWM.plecs` | H4 full bridge, unipolar PWM |
+| `H5_inverter.plecs` | H5 transformerless topology |
+| [`H4_H5_CMV_report.pdf`](H4_H5_CMV_report.pdf) | Full report with all waveforms and FFT spectra |
+| `cmv_*.png` | Figures used in this README |
 
 ## How to run
 
