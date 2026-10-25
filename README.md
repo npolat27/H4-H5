@@ -22,7 +22,8 @@ The choice of PWM strategy and topology decides how much CMV fluctuates, so it d
 | Load capacitance C | 50 µF |
 | Parasitic capacitance C<sub>p</sub> | 100 pF |
 | Parasitic resistance R<sub>p</sub> | 10 kΩ |
-| Reference frequency | 50 Hz |
+| Reference (output) frequency | 50 Hz |
+| Carrier (switching) frequency | 5 kHz |
 
 Configurations simulated:
 1. H4 full bridge, bipolar PWM
@@ -52,7 +53,8 @@ Configurations simulated:
 
 ```
 ├── simulation/
-│   ├── H4_bipolar_unipolar.plecs   # H4 full bridge, bipolar and unipolar PWM
+│   ├── H4_bipolar_PWM.plecs        # H4 full bridge, bipolar PWM
+│   ├── H4_unipolar_PWM.plecs       # H4 full bridge, unipolar PWM
 │   └── H5_inverter.plecs           # H5 transformerless topology
 ├── report/
 │   └── H4_H5_CMV_report.pdf        # Full report with all waveforms and FFT spectra
@@ -65,7 +67,7 @@ Configurations simulated:
 2. Run the simulation. Scopes show the Node A / Node B voltages, V<sub>cm</sub>, output voltage and current, and leakage current.
 3. Use the PLECS scope FFT view to reproduce the CMV frequency spectra.
 
-The H4 model contains an extra load switch that was used only to study switching behaviour. It is not part of the results above.
+The models contain an extra load switch that was used only to study switching behaviour. It is not part of the results above.
 
 ## Key challenge
 
